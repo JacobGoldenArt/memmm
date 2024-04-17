@@ -1,0 +1,115 @@
+[cli]
+exit_words = [
+    "exit",
+    "quit",
+    "bye",
+    "goodbye",
+    "stop",
+    "end",
+    "done",
+    "finish",
+    "close",
+    "sleep",
+    "goodnight",
+    "nightnight",
+    "later",
+    "q",
+    "x",
+    "zzz",
+    "night",
+    "shut down",
+    "shutoff",
+    "powerdown",
+    "power",
+]
+
+[cli.default]
+api_service = "openai"
+model = "gpt-4"
+temperature = 0.3
+speech_to_text = true
+text_to_speech = true
+speech_model = "vits"
+voice = "p230"
+
+[litellm]
+verbose = false
+tracing = true
+tracing_api = "langsmith"
+
+
+[[llms]]
+[llms.together]
+api_service = "together"
+default_model = "t-7b"
+[llms.together.aliases]
+t-7b = "together_ai/mistralai/Mistral-7B-Instruct-v0.1"
+t-mix = "together_ai/mistralai/Mixtral-8x7B-Instruct-v0.1"
+base_url = "https://api.together.xyz/v1"
+
+[[llms]]
+[llms.ollama]
+api_service = "ollama"
+default_model = "qw-14"
+[llms.ollama.aliases]
+o-herm = "ollama/openhermes"
+qw-14 = "ollama/qwen:14b"
+base_url = "http://localhost:11434/v1"
+
+
+[[llms]]
+[llms.openai]
+api_service = "openai"
+base_url = "https://api.openai.com/v1"
+default_model = "gpt-3.5-turbo"
+[llms.openai.aliases]
+gpt-3 = "openai/gpt-3.5-turbo-0125"
+gpt-4 = "openai/gpt-4-turbo-preview"
+
+[[llms]]
+[llms.mistral]
+api_service = "mistral"
+default_model = "m-7"
+[llms.mistral.aliases]
+m-7 = "mistral/open-mistral-7b"
+m-mix = "mistral/open-mixtral-8x7b"
+m-sm = "mistral/mistral-small-latest"
+m-md = "mistral/mistral-medium-latest"
+m-lg = "mistral/mistral-large-latest"
+base_url = ""
+
+[[llms]]
+[llms.anthropic]
+api_service = "anthropic"
+default_model = "claude-3"
+[llms.anthropic.aliases]
+c-hai = "anthropic/claude-3-haiku-20240307"
+c-son = "anthropic/claude-3-sonnet-20240229"
+c-opu = "anthropic/claude-3-opus-20240229"
+base_url = ""
+
+[prompts]
+promp_library = '~/_Dev/_Lib/Em/prompt_library'
+patterns = '~/_Dev/_Lib/Em/prompt_library/patterns'
+
+[messages]
+n_number = 10
+
+[memmory]
+summary_api = "ollama"
+summary_model = "qwen:7b"
+entities_extract_api = "ollama"
+entities_extract_model = "teknium/OpenHermes-2p5-Mistral-7B"
+
+[db]
+[db.redis]
+REDIS_HOST = "127.0.0.1"
+REDIS_PORT = 6379
+
+[vector]
+chunk_size = 1000
+chunker_type = "langchain-text-splitter"
+db = "chromadb"
+chroma_collection = "chat_summaries"
+embedding_api = "ollama"
+embedding_model = "nomic-embed-text"

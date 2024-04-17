@@ -1,0 +1,7 @@
+api_service = "openai"
+model = "gpt-4"
+temperature = 0.3
+speech_to_text = true
+text_to_speech = true
+speech_model = "vits"
+voice = "p230"

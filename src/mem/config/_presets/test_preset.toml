@@ -1,0 +1,6 @@
+api_service = "openai"
+model = "gpt-4-turbo"
+stream = "false"
+temperature = 1.0
+max_tokens = 300
+system_prompt = "The following is a conversation with an AGI assistant named Em. The assistant is helpful, creative, clever, and very friendly."
